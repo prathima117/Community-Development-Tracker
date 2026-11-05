@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block title %}CommunityPulse | Development Tracker{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow light">COMMUNITY IMPACT, MADE VISIBLE</span>
+    <h1>Track progress.<br><em>Tell the impact story.</em></h1>
+    <p>A clear view of local development initiatives, project progress and funding goals.</p>
+    <a class="button button-lime" href="#projects">Explore projects <span aria-hidden="true">↘</span></a>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+    <div class="art-center"><span>IMPACT</span><strong>∞</strong><small>TOGETHER</small></div>
+    <span class="art-tag tag-top">PEOPLE FIRST</span><span class="art-tag tag-bottom">LOCAL ACTION / BIG CHANGE</span>
+  </div>
+  <div class="hero-bottom"><span>01 — COMMUNITY</span><span>02 — TRANSPARENCY</span><span>03 — PROGRESS</span></div>
+</section>
+
+<section class="stats-grid" aria-label="Project summary">
+  <article class="stat-card"><span>PROJECTS TRACKED</span><strong>{{ summary.projects }}</strong><small>Across community priorities</small></article>
+  <article class="stat-card"><span>AVERAGE PROGRESS</span><strong>{{ "%.0f"|format(summary.avg_progress) }}%</strong><small>Combined project progress</small></article>
+  <article class="stat-card"><span>TOTAL BUDGET</span><strong>₹{{ "{:,.0f}".format(summary.budget) }}</strong><small>Recorded project budgets</small></article>
+  <article class="stat-card"><span>RAISED / UTILIZED</span><strong>₹{{ "{:,.0f}".format(summary.raised) }}</strong><small>Recorded funding amount</small></article>
+</section>
+
+<section class="team-section" id="team" aria-labelledby="team-title">
+  <div class="section-heading">
+    <div><span class="eyebrow">THE PEOPLE BEHIND THE PROGRESS</span><h2 id="team-title">Board &amp; team</h2><p>Leadership and years of community contribution.</p></div>
+  </div>
+  <div class="team-tier">
+    <h3>Executive leadership</h3>
+    <div class="team-grid team-leadership">
+      <article class="team-card team-chair">
+        <img src="https://images.openai.com/static-rsc-4/rLhp3fXmYkIkR_Cpg1rZ4BFe-3bY1KaMPOSbKtUJ1zNX3smHQdKbUwsVWyhAzIyZkolwYY94A4o2LftmqmcaPifEi2oyxOQW4B3wlkWI2CzSoGAH_X0kmesiz2CqaBcWWoIEO4FvL-Zf1ZerLw74jJ7UJ7UQbEpHasbzXpFeo27SmLcokuSpxl3qI-Lk0d1J?purpose=fullsize" alt="Rajesh Kumar" loading="lazy">
+        <div><span class="team-role">Chairman / President</span><h4>Rajesh Kumar</h4><p class="team-years">12 years of contribution</p><p class="team-focus">Community development and rural welfare</p></div>
+      </article>
+      <article class="team-card">
+        <img src="https://images.openai.com/static-rsc-4/oHS5dxFf_O7i-7MlmycEbOlGyck7tnahgkBDb1tUOkXKZThkeFyVMri1sbTmx-BL9vIz5M4QAcCJYwUaAsBcWxzv3Gfo-gwxifpenWrc-7-jTEqhJqypQg76HAlkJiUoltfvheROxdOy48JmFqJY3wOO5EJIQkk_5CyFsn9NO7t0a1lKCr4T6h0YVv_asqVK?purpose=fullsize" alt="Priya Sharma" loading="lazy">
+        <div><span class="team-role">Vice President</span><h4>Priya Sharma</h4><p class="team-years">10 years of contribution</p><p class="team-focus">Women’s empowerment and education</p></div>
+      </article>
+    </div>
+  </div>
+  <div class="team-tier">
+    <h3>Board members</h3>
+    <div class="team-grid team-members">
+      <article class="team-card">
+        <img class="team-photo-arjun" src="https://images.openai.com/static-rsc-4/qDi_srDymIJdsv2tFH9pz6laE8FD8zGQrwlBoRyanSJMUmKS6kVqonYjl7y2KI95OIpm48IJdIl0uw3iGQkfq7L7jpx-78mLQuHXXbCadoRTrswz4c6bTzas2GhKGj0KIILG6HjeyYyCMssWdRnRB2le2Wtoqonr0emDlFXhTnGLMXRkIqpc8XrdeUFKTbsK?purpose=fullsize" alt="Arjun Reddy" loading="lazy">
+        <div><span class="team-role">Secretary</span><h4>Arjun Reddy</h4><p class="team-years">8 years of contribution</p><p class="team-focus">Project management and social welfare</p></div>
+      </article>
+      <article class="team-card">
+        <img src="https://images.openai.com/static-rsc-4/FS0IejuQggSF7j-7HFDIQTA1a4zPb2zfA_ttv7SNpNGCYLuVDK6QNyXhefn2ryhdrek2B64gBz7Y-0ohW8hqq-khhovcrgRLN6fJR2vORL5Zhqod-20HudYo47jYMVS54p1XfJImWC9js5acTCTgsL3bvLlIgN0e9ZSC6PFPwpUtDuEZmDzdfUqsFm0FS_0z?purpose=fullsize" alt="Lakshmi Devi" loading="lazy">
+        <div><span class="team-role">Treasurer</span><h4>Lakshmi Devi</h4><p class="team-years">7 years of contribution</p><p class="team-focus">Financial management and community support</p></div>
+      </article>
+      <article class="team-card">
+        <img src="https://images.openai.com/static-rsc-4/QG7dZimfiTyl0pEE0hoxOEoeGtcO4zqb65dhjpTf0pMhW5zJ2SFTNc4cjmF5YU1r_CVetmxHKMHF8ZJcrqJjjiBi2tmKPjmVO0KdPPkOE2c7SSt2EanusY1QTiTnv7hPLTbcrl7bAdrstb7FGGk8MCTN_9N09P6z7qgPk7xhHY4b5iUMl7vKuWUP09VasExc?purpose=fullsize" alt="Suresh Babu" loading="lazy">
+        <div><span class="team-role">Board Member</span><h4>Suresh Babu</h4><p class="team-years">5 years of contribution</p><p class="team-focus">Environmental development and public health</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-heading" id="projects">
+  <div><span class="eyebrow">THE WORK IN MOTION</span><h2>Community projects</h2><p>Discover initiatives and follow their progress.</p></div>
+  <span class="result-count">{{ projects|length }} results</span>
+</section>
+
+<form class="filter-bar" id="project-filters" method="get" action="{{ url_for('index') }}#projects">
+  <label class="search-field"><span>Search projects</span><input id="project-search" type="search" name="q" value="{{ search }}" placeholder="Search name, location or details…"></label>
+  <label class="category-field"><span>Category</span>
+    <select id="project-category" name="category">
+      <option {% if selected_category == "All categories" %}selected{% endif %}>All categories</option>
+      {% for category in categories %}<option value="{{ category }}" {% if selected_category == category %}selected{% endif %}>{{ category }}</option>{% endfor %}
+    </select>
+  </label>
+  <a class="reset-link" href="{{ url_for('index') }}#projects">Reset</a>
+</form>
+
+<div class="project-grid">
+  {% for project in projects %}
+  <article class="project-card">
+    {% if project.image_url %}<img class="project-image" src="{{ project.image_url }}" alt="{{ project.name }}" loading="lazy">{% endif %}
+    <div class="card-top"><span class="category-pill">{{ project.category }}</span><span class="project-number">CP-{{ "%03d"|format(project.id) }}</span></div>
+    <h3>{{ project.name }}</h3>
+    <p class="project-location">⌖ {{ project.location }}</p>
+    <p class="project-description">{{ project.description }}</p>
+    <div class="progress-label"><span>Progress</span><strong>{{ project.progress }}%</strong></div>
+    <div class="progress-track"><span style="width: {{ project.progress }}%"></span></div>
+    <div class="funding-row"><span>Budget <strong>₹{{ "{:,.0f}".format(project.budget) }}</strong></span><span>Raised <strong>₹{{ "{:,.0f}".format(project.raised) }}</strong></span></div>
+    <div class="card-footer"><span class="status status-{{ project.status|lower|replace(' ', '-') }}">{{ project.status }}</span><a href="{{ url_for('project_detail', project_id=project.id) }}">View details ↗</a></div>
+  </article>
+  {% else %}
+  <div class="empty-state"><h3>No projects found</h3><p>Try a different search or category.</p><a href="{{ url_for('index') }}">View all projects</a></div>
+  {% endfor %}
+</div>
+
+<section class="add-section" id="add-project">
+  <div class="add-intro"><span class="eyebrow light">GROW THE IMPACT</span><h2>Have a project<br>to add?</h2><p>Record a community initiative and make its goals, budget and progress visible.</p><div class="add-note">✳ Every meaningful change starts somewhere.</div></div>
+  <form class="project-form" action="{{ url_for('add') }}" method="post">
+    <div class="form-heading"><h3>New project details</h3><span>All fields required unless marked optional</span></div>
+    <div class="form-grid">
+      <label class="full">Project name<input name="name" required maxlength="120" placeholder="e.g. Clean Water for Villages"></label>
+      <label>Category<select name="category" required>{% for category in categories %}<option value="{{ category }}">{{ category }}</option>{% endfor %}</select></label>
+      <label>Location<input name="location" required maxlength="100" placeholder="City / state"></label>
+      <label>Budget (₹)<input name="budget" type="number" min="0" step="0.01" value="0" required></label>
+      <label>Raised / utilized (₹)<input name="raised" type="number" min="0" step="0.01" value="0" required></label>
+      <label>Progress (%)<input name="progress" type="number" min="0" max="100" value="0" required></label>
+      <label>Status<select name="status"><option>Planning</option><option selected>In Progress</option><option>Near Completion</option><option>Completed</option></select></label>
+      <label class="full">Project description<textarea name="description" required rows="3" maxlength="600" placeholder="Describe the goal and the community this project supports."></textarea></label>
+    </div>
+    <button class="button button-green" type="submit">Save project <span aria-hidden="true">↗</span></button>
+  </form>
+</section>
+<script src="{{ url_for('static', filename='js/filters.js') }}" defer></script>
+{% endblock %}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}CommunityPulse{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand" href="{{ url_for('index') }}">
+      <span class="brand-mark">CP</span>
+      <span><strong>CommunityPulse</strong><small>COMMUNITY DEVELOPMENT TRACKER</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      {% if session.get("user_email") %}
+        <a href="{{ url_for('index') }}#projects">Home / Projects</a>
+        <a href="{{ url_for('index') }}#team">Board &amp; Team</a>
+        <a href="{{ url_for('index') }}#add-project" class="nav-cta">+ Add project</a>
+        <span class="nav-user">{{ session.get("user_email") }}</span>
+        <form class="nav-logout" method="post" action="{{ url_for('logout') }}">
+          <button type="submit">Log out</button>
+        </form>
+      {% else %}
+        <a href="{{ url_for('index') }}#projects">Home / Projects</a>
+        <a href="{{ url_for('index') }}#team">Board &amp; Team</a>
+        <a href="{{ url_for('index') }}#add-project">Add project</a>
+        <a href="{{ url_for('login') }}">Log in</a>
+      {% endif %}
+    </nav>
+  </header>
+  <main class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="messages">
+          {% for category, message in messages %}
+            <p class="alert {{ category }}">{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer">
+    <div><strong>CommunityPulse</strong><p>Making community progress visible, one project at a time.</p></div>
+    <span>Demo project · Sample data for learning purposes</span>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="{{ url_for('index') }}#projects">Home / Projects</a>
+      <a href="{{ url_for('index') }}#team">Board &amp; Team</a>
+      <a href="{{ url_for('index') }}#add-project">Add project</a>
+      {% if session.get("user_email") %}
+        <form class="nav-logout" method="post" action="{{ url_for('logout') }}">
+          <button type="submit">Log out</button>
+        </form>
+      {% else %}
+        <a href="{{ url_for('login') }}">Log in</a>
+      {% endif %}
+    </nav>
+  </footer>
+</body>
+</html>

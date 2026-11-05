@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{ project.name }} | CommunityPulse{% endblock %}
+{% block content %}
+<a class="back-link" href="{{ url_for('index') }}#projects">← Back to all projects</a>
+<section class="detail-hero">
+  {% if project.image_url %}<img class="detail-image" src="{{ project.image_url }}" alt="{{ project.name }}" loading="lazy">{% endif %}
+  <span class="eyebrow light">{{ project.category }} · CP-{{ "%03d"|format(project.id) }}</span>
+  <h1>{{ project.name }}</h1>
+  <p>{{ project.description }}</p>
+  <span class="status status-{{ project.status|lower|replace(' ', '-') }}">{{ project.status }}</span>
+</section>
+<section class="detail-grid">
+  <article class="detail-card"><span>LOCATION</span><strong>{{ project.location }}</strong></article>
+  <article class="detail-card"><span>PROGRESS</span><strong>{{ project.progress }}%</strong><div class="progress-track"><span style="width: {{ project.progress }}%"></span></div></article>
+  <article class="detail-card"><span>PROJECT BUDGET</span><strong>₹{{ "{:,.0f}".format(project.budget) }}</strong></article>
+  <article class="detail-card"><span>RAISED / UTILIZED</span><strong>₹{{ "{:,.0f}".format(project.raised) }}</strong></article>
+</section>
+<section class="detail-description"><span class="eyebrow">PROJECT OVERVIEW</span><h2>Progress with purpose.</h2><p>{{ project.description }}</p><p>This tracker stores sample project information locally for demonstration. Confirm figures with the responsible organisation before using them for official reporting.</p></section>
+<form method="post" action="{{ url_for('delete', project_id=project.id) }}" class="delete-form">
+  <p>Remove this project from the tracker?</p><button class="button button-danger" type="submit">Delete project</button>
+</form>
+{% endblock %}
