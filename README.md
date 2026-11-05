@@ -1,6 +1,6 @@
 # CommunityPulse — Community Development Tracker
 
-A browser-based website using Python Flask, HTML templates, CSS, a small JavaScript enhancement for automatic filtering, and SQLite.
+A Python Flask-based Community Development Tracker. This browser-based website uses HTML templates, CSS, a small JavaScript enhancement for automatic filtering, and SQLite.
 
 ## Run in VS Code (Windows)
 1. Extract the ZIP and open this folder in VS Code.
